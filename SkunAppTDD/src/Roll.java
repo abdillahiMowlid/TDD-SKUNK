@@ -14,5 +14,4 @@ public class Roll {
 	public int getLastTotal() {
 		return this.lastTotal;
 	}
-
 }
