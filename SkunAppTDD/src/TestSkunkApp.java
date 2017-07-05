@@ -16,8 +16,8 @@ public class TestSkunkApp {
 	
 	@Before
 	public void setUp() {
-		this.player1 =new Player();
-		this.player2= new Player();
+		this.player1 =new Player("mowlid");
+		this.player2= new Player("jack");
 		this.game = new SkunkApp(player1, player2);
 	}
 	
