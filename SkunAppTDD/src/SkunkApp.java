@@ -1,11 +1,13 @@
 
 public class SkunkApp {
 	
+	private static final int POINTS_TO_WIN = 100;
 	private int numberOfPlayers;
 	private String[] playerNames;
 	private Player player1;
 	private Player player2;
 	private Player current;
+	private boolean isOver= false;
 
 	
 
@@ -36,6 +38,14 @@ public class SkunkApp {
 	}
 
 	public void endTurn() {
+		if(this.current.getScore() >= POINTS_TO_WIN){
+			this.isOver= true;
+		}
 		this.current= this.current.equals(player1) ? player2: player1;		
+	}
+
+	public boolean isOver() {
+		return isOver;
+		
 	}
 }

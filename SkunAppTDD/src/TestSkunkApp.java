@@ -1,9 +1,12 @@
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import junit.framework.Assert;
 
 public class TestSkunkApp {
 	
@@ -35,13 +38,21 @@ public class TestSkunkApp {
 	
 	@Test
 	public void CurentPlayerIsPlayer1(){
-		game= new SkunkApp(player1, player2);
 		assertEquals(player1, game.currentPlayer());
 	}
 	@Test
-	public void CurentPlayerFirstTurnended(){
-		game= new SkunkApp(player1, player2);
+	public void CurentPlayer_FirstTurnEnd(){
 		game.endTurn();
 		assertEquals(player2, game.currentPlayer());
+	}
+	@Test
+	public void isOver_startofthegame(){
+		assertFalse(game.isOver());
+	}
+	@Test
+	public void isOver_playerHas100Points(){
+		player1.setscore(100);
+		game.endTurn();
+		assertTrue(game.isOver());
 	}
 	}
