@@ -11,7 +11,7 @@ public class TestSkunkApp {
 	
 	@Before
 	public void setUp() {
-		this.game = new SkunkApp();
+		this.game = new SkunkApp(null, null);
 	}
 	
 	@Test
@@ -28,4 +28,14 @@ public class TestSkunkApp {
 		assertTrue(roll.getLastTotal() <= 12);
 		assertTrue(roll.getLastTotal() >= 2);
 	}
-}
+	
+	@Test
+	public void testCurentPlayerIsPlayer1(){
+		Player player1 = new Player();
+		Player player2= new Player();
+		game= new SkunkApp(player1, player2);
+		assertEquals(player1, game.currentPlayer());
+	
+	
+	}
+	}
