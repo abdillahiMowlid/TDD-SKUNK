@@ -8,10 +8,14 @@ import org.junit.Test;
 public class TestSkunkApp {
 	
 	private SkunkApp game;
+	private Player player1;
+	private Player player2;
 	
 	@Before
 	public void setUp() {
-		this.game = new SkunkApp(null, null);
+		this.player1 =new Player();
+		this.player2= new Player();
+		this.game = new SkunkApp(player1, player2);
 	}
 	
 	@Test
@@ -30,12 +34,14 @@ public class TestSkunkApp {
 	}
 	
 	@Test
-	public void testCurentPlayerIsPlayer1(){
-		Player player1 = new Player();
-		Player player2= new Player();
+	public void CurentPlayerIsPlayer1(){
 		game= new SkunkApp(player1, player2);
 		assertEquals(player1, game.currentPlayer());
-	
-	
+	}
+	@Test
+	public void CurentPlayerFirstTurnended(){
+		game= new SkunkApp(player1, player2);
+		game.endTurn();
+		assertEquals(player2, game.currentPlayer());
 	}
 	}

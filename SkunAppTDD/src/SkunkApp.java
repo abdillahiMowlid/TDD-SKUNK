@@ -5,12 +5,14 @@ public class SkunkApp {
 	private String[] playerNames;
 	private Player player1;
 	private Player player2;
+	private Player current;
 
 	
 
 	public SkunkApp(Player player1, Player player2) {
 		this.player1= player1;
 		this.player2=player2;
+		this.current= player1;
 	}
 
 	public void getPlayerInfo() {
@@ -29,7 +31,11 @@ public class SkunkApp {
 	}
 
 	public Player currentPlayer() {
-		return player1;
+		return current;
 		
+	}
+
+	public void endTurn() {
+		this.current= this.current.equals(player1) ? player2: player1;		
 	}
 }
