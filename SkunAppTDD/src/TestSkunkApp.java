@@ -55,4 +55,11 @@ public class TestSkunkApp {
 		game.endTurn();
 		assertTrue(game.isOver());
 	}
+	@Test
+	public void getWinner_PlayerHas100point(){
+		player1.setscore(100);
+		game.endTurn();
+		assertEquals(player1, game.getWinner());
+		
+	}
 	}
