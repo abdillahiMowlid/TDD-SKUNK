@@ -5,27 +5,41 @@ import org.junit.Test;
 
 public class testTurn {
 
+	private Player player;
 	@Before
 	public void setUp() throws Exception {
+		this.player = new Player("test player");
 	}
 
 	@Test
 	public void getScore_startsZero() {
-		Turn turn = new Turn(new FixedValueDice(3));
+		Turn turn = makeTurnWithFixedDiceValue(3);
 		assertEquals(0, turn.getScore());
 		
 	}
+	private Turn makeTurnWithFixedDiceValue(int value) {
+		// TODO Auto-generated method stub
+		return new Turn(player, new FixedValueDice(value));
+	}
+
 	@Test
 	public void roll_modifiesScoreByRollmount(){
-		Turn turn = new Turn(new FixedValueDice(6));
+		Turn turn =makeTurnWithFixedDiceValue(6);
 		turn.roll();
 		assertEquals(12, turn.getScore());
 	}
 	@Test
 	public void roll_secondRollNonBust(){
-		Turn turn = new Turn(new FixedValueDice(8));
+		Turn turn = makeTurnWithFixedDiceValue(8);
 		turn.setScore(6);
 		turn.roll();
 		assertEquals(22, turn.getScore());
+	}
+	@Test
+	public void end_modifiesPlayerScore(){
+		Turn turn = makeTurnWithFixedDiceValue(8);
+		turn.setScore(10);
+		turn.end();
+		assertEquals(10, turn.getPlayer().getScore());
 	}
 }

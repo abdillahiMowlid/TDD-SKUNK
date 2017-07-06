@@ -51,13 +51,13 @@ public class TestSkunkApp {
 	}
 	@Test
 	public void isOver_playerHas100Points(){
-		player1.setscore(100);
+		player1.setScore(100);
 		game.endTurn();
 		assertTrue(game.isOver());
 	}
 	@Test
 	public void getWinner_PlayerHas100point(){
-		player1.setscore(100);
+		player1.setScore(100);
 		game.endTurn();
 		assertEquals(player1, game.getWinner());
 		

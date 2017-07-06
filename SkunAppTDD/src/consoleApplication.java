@@ -9,14 +9,16 @@ public class consoleApplication {
 		Scanner scanner = new Scanner(System.in);
 		
 		println("welcome to SkunkGame:");
+		Turn turn = new Turn(player1, new Roll());
 		while(!game.isOver()){
 			println(player1.getName() + "'sScore is" + player1.getScore());
 			println(player1.getName() + "'sScore is" + player1.getScore());
 			println(" it is: " + game.currentPlayer().getName() + "'s turn");
-			println("press Enter to go on");
+			println("press Enter to roll");
 			String line = scanner.nextLine();
-			if (line.startsWith("!")){
-				player1.setscore(100);
+			if (line.startsWith("q")){
+				//player1.setscore(100);
+				turn.roll();
 			}
 			game.endTurn();
 		}

@@ -3,8 +3,10 @@ public class Turn {
 
 	private int score;
 	private Dice dice;
+	private Player player;
 	
-	public Turn(Dice dice) {
+	public Turn(Player player, Dice dice) {
+		this.player=player;
 		this.dice=dice;
 	}
 
@@ -19,6 +21,15 @@ public class Turn {
 
 	void setScore(int score) {
 		this.score=score;	
+	}
+
+	public void end() {
+		this.player.setScore(player.getScore()+ this.score);
+		
+	}
+
+	public Player getPlayer() {
+		return player;
 	}
 
 }
