@@ -52,6 +52,10 @@ public class SkunkApp {
 	}
 
 	public Player getWinner() {
+		if(!isOver){
+			throw new IllegalStateException("the Game is not Over");
+		} else{
+		}
 		return winner;
 	}
 }

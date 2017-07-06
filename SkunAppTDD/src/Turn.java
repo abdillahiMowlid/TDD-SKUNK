@@ -1,10 +1,11 @@
 
 public class Turn {
 
-	public String currentPlayer;
+	private int score;
 
-	public Turn(String [] playerName) {
-		// TODO Auto-generated constructor stub
+	public int getScore() {
+		
+		return score;
 	}
 
 }

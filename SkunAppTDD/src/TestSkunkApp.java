@@ -62,4 +62,8 @@ public class TestSkunkApp {
 		assertEquals(player1, game.getWinner());
 		
 	}
+	@Test(expected =IllegalStateException.class)
+	public void getWinner_noWinner(){
+		game.getWinner();
+	}
 	}
