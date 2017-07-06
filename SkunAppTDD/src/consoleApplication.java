@@ -10,6 +10,8 @@ public class consoleApplication {
 		
 		println("welcome to SkunkGame:");
 		while(!game.isOver()){
+			println(player1.getName() + "'sScore is" + player1.getScore());
+			println(player1.getName() + "'sScore is" + player1.getScore());
 			println(" it is: " + game.currentPlayer().getName() + "'s turn");
 			println("press Enter to go on");
 			String line = scanner.nextLine();
