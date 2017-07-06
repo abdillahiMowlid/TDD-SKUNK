@@ -1,12 +1,14 @@
 
-public class FixedValueDice {
+public class FixedValueDice implements Dice {
 	
 //private int die1;
 //private int die2;
 private int value;
+//private int value2;
+//private int value1;
 
 public FixedValueDice(int value){
-	this.value=value;
+	this.value= value;
 }
 	
 	//public void roll() {
@@ -23,9 +25,20 @@ public FixedValueDice(int value){
 	   //return die2;
 	//}
 	
-	public int getValue() {
-	      // Return the total showing on the two dice.
-	   return value;
-}
+	
+
+	@Override
+	public int rollDie1() {
+		return value;
+	}
+
+	@Override
+	public int rollDie2() {
+		return value;
+		
+	//}
+	//public int getValue(){
+	//return this.value;
+	}
 }
 

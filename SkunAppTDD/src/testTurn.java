@@ -11,15 +11,21 @@ public class testTurn {
 
 	@Test
 	public void getScore_startsZero() {
-		Turn turn = new Turn(new FixedValueDice(3), new FixedValueDice(3));
+		Turn turn = new Turn(new FixedValueDice(3));
 		assertEquals(0, turn.getScore());
 		
 	}
 	@Test
 	public void roll_modifiesScoreByRollmount(){
-		Turn turn = new Turn(new FixedValueDice(3), new FixedValueDice(3));
+		Turn turn = new Turn(new FixedValueDice(6));
 		turn.roll();
-		assertEquals(6, turn.getScore());
+		assertEquals(12, turn.getScore());
 	}
-
+	@Test
+	public void roll_secondRollNonBust(){
+		Turn turn = new Turn(new FixedValueDice(8));
+		turn.setScore(6);
+		turn.roll();
+		assertEquals(22, turn.getScore());
+	}
 }

@@ -1,13 +1,11 @@
 
 public class Turn {
 
-	private int score=0;
-	private FixedValueDice die1;
-	private FixedValueDice die2;
-	public Turn(FixedValueDice die1, FixedValueDice die2) {
-		this.die1 = die1;
-		this.die2=die2;
+	private int score;
+	private Dice dice;
 	
+	public Turn(Dice dice) {
+		this.dice=dice;
 	}
 
 	public int getScore() {
@@ -16,9 +14,11 @@ public class Turn {
 	}
 
 	public void roll() {
-		score+=die1.getValue()+ die2.getValue();
-		
-		
+		score+=dice.rollDie1()+dice.rollDie2();
+	}
+
+	void setScore(int score) {
+		this.score=score;	
 	}
 
 }
