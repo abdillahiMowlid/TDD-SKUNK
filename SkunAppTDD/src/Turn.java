@@ -11,12 +11,16 @@ public class Turn {
 	}
 
 	public int getScore() {
-		
 		return score;
 	}
 
 	public void roll() {
+		int roll = dice.rollDie1()+dice.rollDie2();
+		if (roll <= 2){
+			score = 0;
+		}else{
 		score+=dice.rollDie1()+dice.rollDie2();
+		}
 	}
 
 	void setScore(int score) {

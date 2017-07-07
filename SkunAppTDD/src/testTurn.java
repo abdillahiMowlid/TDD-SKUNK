@@ -18,7 +18,6 @@ public class testTurn {
 		
 	}
 	private Turn makeTurnWithFixedDiceValue(int value) {
-		// TODO Auto-generated method stub
 		return new Turn(player, new FixedValueDice(value));
 	}
 
@@ -41,5 +40,12 @@ public class testTurn {
 		turn.setScore(10);
 		turn.end();
 		assertEquals(10, turn.getPlayer().getScore());
+	}
+	@Test
+	public void rollOne_withTurnSumScoreTurnScoreBeomesZero(){
+		Turn turn = makeTurnWithFixedDiceValue(1);
+		turn.setScore(10);
+		turn.roll();
+		assertEquals(0, turn.getScore());
 	}
 }
