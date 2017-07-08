@@ -4,6 +4,8 @@ public class Turn {
 	private int score;
 	private Dice dice;
 	private Player player;
+	private final int SKUNK = 2;
+	private boolean isOVer = false;
 	
 	public Turn(Player player, Dice dice) {
 		this.player=player;
@@ -14,13 +16,15 @@ public class Turn {
 		return score;
 	}
 
-	public void roll() {
+	public int roll() {
 		int roll = dice.rollDie1()+dice.rollDie2();
-		if (roll <= 2){
+		if (roll <= SKUNK){
 			score = 0;
+			isOVer = true;
 		}else{
-		score+=dice.rollDie1()+dice.rollDie2();
+		score+=roll;
 		}
+		return roll;
 	}
 
 	void setScore(int score) {
@@ -34,6 +38,10 @@ public class Turn {
 
 	public Player getPlayer() {
 		return player;
+	}
+
+	public boolean IsOver() {
+		return isOVer;
 	}
 
 }

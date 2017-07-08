@@ -41,8 +41,8 @@ public class TestSkunkApp {
 		assertEquals(player1, game.currentPlayer());
 	}
 	@Test
-	public void CurentPlayer_FirstTurnEnd(){
-		game.endTurn();
+	public void startNextTurn(){
+		game.startNextTurn();
 		assertEquals(player2, game.currentPlayer());
 	}
 	@Test
@@ -52,13 +52,13 @@ public class TestSkunkApp {
 	@Test
 	public void isOver_playerHas100Points(){
 		player1.setScore(100);
-		game.endTurn();
+		game.bankAndEndTurn();;
 		assertTrue(game.isOver());
 	}
 	@Test
 	public void getWinner_PlayerHas100point(){
 		player1.setScore(100);
-		game.endTurn();
+		game.bankAndEndTurn();;
 		assertEquals(player1, game.getWinner());
 		
 	}

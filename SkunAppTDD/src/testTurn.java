@@ -48,4 +48,17 @@ public class testTurn {
 		turn.roll();
 		assertEquals(0, turn.getScore());
 	}
+	@Test 
+	public void turnIsOver_initialyFalse(){
+		Turn turn = makeTurnWithFixedDiceValue(1);
+		assertFalse(turn.IsOver());
+		
+	}
+	
+	@Test 
+	public void turnIsOver_rollTwoIsTrue(){
+		Turn turn = makeTurnWithFixedDiceValue(1);
+		turn.roll();
+		assertTrue(turn.IsOver());
+	}
 }

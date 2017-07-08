@@ -38,14 +38,16 @@ public class SkunkApp {
 		
 	}
 
-	public void endTurn() {
+	public void bankAndEndTurn() {
 		turn.end();
 		if(currentPlayer().getScore() >= POINTS_TO_WIN){
 			this.winner=currentPlayer();
 			this.isOver= true;
 		}
-		turn = new Turn(nextPlayer(), DICE);
 			
+	}
+	public void startNextTurn(){
+		turn = new Turn(nextPlayer(), DICE);
 	}
 
 	private Player nextPlayer() {
@@ -65,13 +67,14 @@ public class SkunkApp {
 		return winner;
 	}
 
-	public void roll() {
-		turn.roll();
+	public int roll() {
+		return turn.roll();
 		
 	}
 
 	public Turn currentTurn() {
-		// TODO Auto-generated method stub
 		return turn;
 	}
+
+	
 }
