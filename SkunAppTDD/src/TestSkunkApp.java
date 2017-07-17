@@ -1,17 +1,24 @@
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
 
+import junit.framework.Assert;
+
 public class TestSkunkApp {
 	
 	private SkunkApp game;
+	private Player player1;
+	private Player player2;
 	
 	@Before
 	public void setUp() {
-		this.game = new SkunkApp();
+		this.player1 =new Player("mowlid");
+		this.player2= new Player("jack");
+		this.game = new SkunkApp(player1, player2);
 	}
 	
 	@Test
@@ -22,10 +29,41 @@ public class TestSkunkApp {
 		assertEquals("Player 2", this.game.getPlayerName(2));
 	}
 	
+	//@Test
+	//public void canCreateRoll() {
+	//	Roll roll = new Roll();
+		//assertTrue(roll.getLastTotal() <= 12);
+		//assertTrue(roll.getLastTotal() >= 2);
+	//}
+	
 	@Test
-	public void canCreateRoll() {
-		Roll roll = new Roll();
-		assertTrue(roll.getLastTotal() <= 12);
-		assertTrue(roll.getLastTotal() >= 2);
+	public void CurentPlayerIsPlayer1(){
+		assertEquals(player1, game.currentPlayer());
 	}
-}
+	@Test
+	public void startNextTurn(){
+		game.startNextTurn();
+		assertEquals(player2, game.currentPlayer());
+	}
+	@Test
+	public void isOver_startofthegame(){
+		assertFalse(game.isOver());
+	}
+	@Test
+	public void isOver_playerHas100Points(){
+		player1.setScore(100);
+		game.bankAndEndTurn();;
+		assertTrue(game.isOver());
+	}
+	@Test
+	public void getWinner_PlayerHas100point(){
+		player1.setScore(100);
+		game.bankAndEndTurn();;
+		assertEquals(player1, game.getWinner());
+		
+	}
+	@Test(expected =IllegalStateException.class)
+	public void getWinner_noWinner(){
+		game.getWinner();
+	}
+	}
