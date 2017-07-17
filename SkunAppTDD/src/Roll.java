@@ -12,11 +12,11 @@ public class Roll implements Dice {
 	//}
 	@Override
 	public int rollDie1() {
-		return RANDOM.nextInt(6) + 1;
+		return RANDOM.nextInt(6)+1;
 	}
 	@Override
 	public int rollDie2() {
-		return RANDOM.nextInt(6)+ 1;
+		return RANDOM.nextInt(6)+1;
 	}
 	//public int getLastTotal() {
 	//	return this.lastTotal;

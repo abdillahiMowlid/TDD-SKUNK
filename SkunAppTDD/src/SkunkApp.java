@@ -1,6 +1,6 @@
 
 public class SkunkApp {
-	private static final Roll DICE = new Roll();
+	private static final Dice DICE = new Roll();
 	private static final int POINTS_TO_WIN = 100;
 	private int numberOfPlayers;
 	private String[] playerNames;
@@ -18,12 +18,12 @@ public class SkunkApp {
 		this.turn = new Turn(player1, DICE);
 	}
 
-	//public void getPlayerInfo() {
-	//	numberOfPlayers = 2;
-		//this.playerNames = new String[this.numberOfPlayers];
-		//this.playerNames[0] = "Player 1";
-		//this.playerNames[1] = "Player 2";
-	//}
+	public void getPlayerInfo() {
+	numberOfPlayers = 2;
+		this.playerNames = new String[this.numberOfPlayers];
+		this.playerNames[0] = "Player 1";
+		this.playerNames[1] = "Player 2";
+	}
 	
 	public int getNumberOfPlayers() {
 		return numberOfPlayers;
@@ -44,7 +44,7 @@ public class SkunkApp {
 			this.winner=currentPlayer();
 			this.isOver= true;
 		}
-			
+		
 	}
 	public void startNextTurn(){
 		turn = new Turn(nextPlayer(), DICE);
@@ -63,8 +63,9 @@ public class SkunkApp {
 		if(!isOver){
 			throw new IllegalStateException("the Game is not Over");
 		} else{
+			return winner;
 		}
-		return winner;
+	
 	}
 
 	public int roll() {

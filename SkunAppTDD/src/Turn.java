@@ -20,6 +20,10 @@ public class Turn {
 		int roll = dice.rollDie1()+dice.rollDie2();
 		if (roll <= SKUNK){
 			score = 0;
+			player.score=0;
+			isOVer = true;
+		} else if (dice.rollDie1()==1 || dice.rollDie2()==1 ){
+			score = 0;
 			isOVer = true;
 		}else{
 		score+=roll;
@@ -33,6 +37,7 @@ public class Turn {
 
 	public void end() {
 		this.player.setScore(player.getScore()+ this.score);
+		this.isOVer=true;
 		
 	}
 

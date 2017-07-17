@@ -1,7 +1,7 @@
 
 public class Player {
 
-	private int score;
+	public int score;
 	private final String name;
 	
 	public Player(String name) {
@@ -15,7 +15,6 @@ public class Player {
 	return this.score;
 	}
 	public String getName() {
-		// TODO Auto-generated method stub
 		return name;
 	}
 }

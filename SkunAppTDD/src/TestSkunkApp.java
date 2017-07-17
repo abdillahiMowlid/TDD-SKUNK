@@ -21,13 +21,13 @@ public class TestSkunkApp {
 		this.game = new SkunkApp(player1, player2);
 	}
 	
-	//@Test
-	//public void testGetPlayerInfo() {
-		//this.game.getPlayerInfo();
-		//assertEquals(2, this.game.getNumberOfPlayers());
-		//assertEquals("Player 1", this.game.getPlayerName(1));
-		//assertEquals("Player 2", this.game.getPlayerName(2));
-	//}
+	@Test
+	public void testGetPlayerInfo() {
+		this.game.getPlayerInfo();
+		assertEquals(2, this.game.getNumberOfPlayers());
+		assertEquals("Player 1", this.game.getPlayerName(1));
+		assertEquals("Player 2", this.game.getPlayerName(2));
+	}
 	
 	//@Test
 	//public void canCreateRoll() {

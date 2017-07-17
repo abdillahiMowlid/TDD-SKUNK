@@ -7,6 +7,7 @@ public class consoleApplication {
 	private static Scanner scanner= new Scanner(System.in);
 
 	public static void main(String[] args) {
+		
 		println("welcome to SkunkGame:");
 		while(!game.isOver()){
 			playOneTurn();
@@ -29,9 +30,10 @@ public class consoleApplication {
 		}
 		
 	}
-	if(!game.isOver()){
+		if(!game.isOver()){
 		game.startNextTurn();
 	}
+		
 	}
 	private static void printScores() {
 		println(player1.getName() + "'sScore is" + player1.getScore());
